@@ -35,6 +35,13 @@ body {
     overflow-y: scroll;  /* Always show scrollbar */
     overflow-x: hidden;  /* Prevent horizontal scroll */
     width: 100%;
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+/* For Webkit browsers (Chrome, Safari, etc.) */
+body::-webkit-scrollbar {
+    display: none;
 }
 
 /* Navbar styles */
