@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elegant Gallery</title>
+    <title>J&D Gallery </title>
     <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <nav class="navbar">
@@ -50,19 +50,22 @@
     <!-- Modal for image preview -->
     <div class="modal" id="imageModal">
         <span class="close-modal">&times;</span>
-        <img class="modal-content" id="modalImage">
-        <div class="modal-caption">
-            <div class="user-info">
-                <img src="https://source.unsplash.com/random/50x50?portrait" alt="User Profile" class="profile-pic">
-                <span class="username">@photographer</span>
+        <div class="modal-content">
+            <img id="modalImage">
+            <div class="modal-caption">
+                <p class="modal-description"></p>
+                <div class="modal-controls">
+                    <button class="modal-prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="modal-next"><i class="fas fa-chevron-right"></i></button>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="photos.js"></script>
-    <script src="script.js"></script>
+    <script src="js/photos.js"></script>
+    <script src="js/script.js"></script>
 
     <footer class="footer">
         <p>Made by Johan Salazar For Diana Alvarez</p>

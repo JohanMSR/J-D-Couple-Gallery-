@@ -1,14 +1,14 @@
 const galleryPhotos = [
     {
         id: 1,
-        url: "images/love/love1.jpg",
+        url: "../images/love/love1.jpg",
         alt: "Love Photo",
         photographer: "A moment of pure love",
         category: "love"
     },
     {
         id: 2,
-        url: "images/couple/couple1.jpg",
+        url: "images/Suki uwu.png",
         alt: "Couple Photo",
         photographer: "Together forever",
         category: "couple"
@@ -49,21 +49,17 @@ function renderGallery() {
     galleryGrid.innerHTML = ''; // Clear existing content
 
     galleryPhotos.forEach((photo, index) => {
-        const animations = [
-            'fade-up',
-            'fade-down',
-            'fade-right',
-            'fade-left',
-            'zoom-in',
-            'zoom-in-up'
-        ];
-        const randomAnimation = animations[index % animations.length];
+        // Calculate animation delay based on column position
+        const columnPosition = index % 3; // Assuming 3 columns
+        const rowPosition = Math.floor(index / 3);
+        const delay = (columnPosition + rowPosition) * 100;
 
         const galleryItem = `
             <div class="gallery-item" 
-                data-aos="${randomAnimation}" 
-                data-aos-delay="${index * 150}"
-                data-aos-duration="${800 + (index * 100)}"
+                data-aos="fade-up" 
+                data-aos-delay="${50 * (index % 3)}"
+                data-aos-duration="600"
+                data-aos-anchor-placement="top-bottom"
                 data-aos-easing="ease-out-cubic">
                 <img src="${photo.url}" alt="${photo.alt}">
                 <div class="overlay">
