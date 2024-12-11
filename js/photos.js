@@ -110,6 +110,86 @@ const galleryPhotos = [
         photographer: "Dawn's embrace",
         category: "nature",
         size: "small"
+    },
+    {
+        id: 16,
+        url: "images/Suki uwu.png",
+        alt: "Sunset Love",
+        photographer: "Love at dusk",
+        category: "love",
+        size: "small"
+    },
+    {
+        id: 17,
+        url: "images/10 dic.png",
+        alt: "Sweet Embrace",
+        photographer: "Tender moments",
+        category: "couple",
+        size: "small"
+    },
+    {
+        id: 18,
+        url: "images/Suki uwu.png",
+        alt: "Garden Romance",
+        photographer: "Love blooms",
+        category: "romantic",
+        size: "small"
+    },
+    {
+        id: 19,
+        url: "images/10 dic.png",
+        alt: "Beach Sunset",
+        photographer: "Coastal romance",
+        category: "romantic",
+        size: "small"
+    },
+    {
+        id: 20,
+        url: "images/Suki uwu.png",
+        alt: "Winter Love",
+        photographer: "Snowy affection",
+        category: "love",
+        size: "small"
+    },
+    {
+        id: 21,
+        url: "images/10 dic.png",
+        alt: "Dance of Love",
+        photographer: "Dancing hearts",
+        category: "couple",
+        size: "small"
+    },
+    {
+        id: 22,
+        url: "images/Suki uwu.png",
+        alt: "Candlelight Date",
+        photographer: "Romantic evening",
+        category: "romantic",
+        size: "small"
+    },
+    {
+        id: 23,
+        url: "images/10 dic.png",
+        alt: "Park Stroll",
+        photographer: "Walking together",
+        category: "couple",
+        size: "small"
+    },
+    {
+        id: 24,
+        url: "images/Suki uwu.png",
+        alt: "Coffee Date",
+        photographer: "Morning love",
+        category: "romantic",
+        size: "small"
+    },
+    {
+        id: 25,
+        url: "images/10 dic.png",
+        alt: "Picnic Love",
+        photographer: "Outdoor romance",
+        category: "love",
+        size: "small"
     }
 ];
 
