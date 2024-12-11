@@ -3,7 +3,7 @@ const galleryPhotos = [
         id: 1,
         url: "images/10 dic.png",
         alt: "Love Photo",
-        photographer: "A moment of pure love",
+        photographer: "A moment of pure love/Un momento de amor puro",
         category: "love",
         size: "small"
     },
@@ -11,167 +11,167 @@ const galleryPhotos = [
         id: 2,
         url: "images/Suki uwu.png",
         alt: "Couple Photo",
-        photographer: "Together forever",
+        photographer: "Together forever/Juntos para siempre",
         category: "couple",
         size: "small"
     },
     {
         id: 3,
-        url: "images/Suki uwu.png",
+        url: "images/image1.png",
         alt: "Romantic Moment",
-        photographer: "Romance in the sunset",
+        photographer: "Golden hour beauty/Hora dorada de belleza",
         category: "romantic",
         size: "small"
     },
     {
         id: 4,
-        url: "images/Suki uwu.png",
+        url: "images/The best duo.png",
         alt: "Sunset Photo",
-        photographer: "Golden hour beauty",
+        photographer: "The best duo/El mejor dúo",
         category: "nature",
         size: "small"
     },
     {
         id: 5,
-        url: "images/Suki uwu.png",
+        url: "images/knight.png",
         alt: "Beach Photo",
-        photographer: "Waves of serenity",
+        photographer: "Waves of serenity/Olas de serenidad",
         category: "nature",
         size: "small"
     },
     {
         id: 6,
-        url: "images/Suki uwu.png",
+        url: "images/lovely.png",
         alt: "Flowers Photo",
-        photographer: "Blooming happiness",
+        photographer: "Falling in love/Enamorandose",
         category: "nature",
         size: "small"
     },
     {
         id: 7,
-        url: "images/Suki uwu.png",
+        url: "images/image2.png",
         alt: "Nature Beauty",
-        photographer: "Natural wonders",
+        photographer: "Natural wonders/Maravillas naturales",
         category: "nature",
         size: "small"
     },
     {
         id: 9,
-        url: "images/Suki uwu.png",
+        url: "images/Johan.png",
         alt: "Sunset Dreams",
-        photographer: "Evening magic",
+        photographer: "Evening magic/Magia del atardecer",
         category: "nature",
         size: "small"
     },
     {
         id: 10,
-        url: "images/Suki uwu.png",
+        url: "images/My girl.png",
         alt: "Mountain View",
-        photographer: "Peak perfection",
+        photographer: "My girl/Mi chica",
         category: "nature",
         size: "small"
     },
     {
         id: 11,
-        url: "images/Suki uwu.png",
+        url: "images/provocative.png",
         alt: "Ocean Waves",
-        photographer: "Coastal beauty",
+        photographer: "Natural beauty/Belleza natural",
         category: "nature",
         size: "small"
     },
     {
         id: 12,
-        url: "images/Suki uwu.png",
+        url: "images/Together.png",
         alt: "Forest Path",
-        photographer: "Woodland journey",
+        photographer: "Journey/Viaje",
         category: "nature",
         size: "small"
     },
     {
         id: 13,
-        url: "images/Suki uwu.png",
+        url: "images/Lost.png",
         alt: "Desert Sands",
-        photographer: "Golden dunes",
+        photographer: "Navegation/Navegación",
         category: "nature",
         size: "small"
     },
     {
         id: 14,
-        url: "images/Suki uwu.png",
+        url: "images/see my future wife.png",
         alt: "Starry Night",
-        photographer: "Night sky wonders",
+        photographer: "seeing my future wife/Viendo a mi futura esposa",
         category: "nature",
         size: "small"
     },
     {
         id: 15,
-        url: "images/Suki uwu.png",
+        url: "images/Diana.png",
         alt: "Morning Mist",
-        photographer: "Dawn's embrace",
+        photographer: "Dawn's embrace/Abrazo del amanecer",
         category: "nature",
         size: "small"
     },
     {
         id: 16,
-        url: "images/Suki uwu.png",
+        url: "images/Shield and Sword.png",
         alt: "Sunset Love",
-        photographer: "Love at dusk",
+        photographer: "Shield and Sword/Escudo y espada",
         category: "love",
         size: "small"
     },
     {
         id: 17,
-        url: "images/10 dic.png",
+        url: "images/REALLY.png",
         alt: "Sweet Embrace",
-        photographer: "Tender moments",
+        photographer: "Really?/En serio?",
         category: "couple",
         size: "small"
     },
     {
         id: 18,
-        url: "images/Suki uwu.png",
+        url: "images/Family.png",
         alt: "Garden Romance",
-        photographer: "Love blooms",
+        photographer: "Family/Familia",
         category: "romantic",
         size: "small"
     },
     {
         id: 19,
-        url: "images/10 dic.png",
+        url: "images/My love.png",
         alt: "Beach Sunset",
-        photographer: "Coastal romance",
+        photographer: "My love/Mi amor",
         category: "romantic",
         size: "small"
     },
     {
         id: 20,
-        url: "images/Suki uwu.png",
+        url: "images/Winter.png",
         alt: "Winter Love",
-        photographer: "Snowy affection",
+        photographer: "Winter Love/Amor de invierno",
         category: "love",
         size: "small"
     },
     {
         id: 21,
-        url: "images/10 dic.png",
+        url: "images/Dance of Love.png",
         alt: "Dance of Love",
-        photographer: "Dancing hearts",
+        photographer: "Dancing hearts/Corazones bailando",
         category: "couple",
         size: "small"
     },
     {
         id: 22,
-        url: "images/Suki uwu.png",
+        url: "images/Candlelight.png",
         alt: "Candlelight Date",
-        photographer: "Romantic evening",
+        photographer: "Romantic evening/Cena romántica",
         category: "romantic",
         size: "small"
     },
     {
         id: 23,
-        url: "images/10 dic.png",
+        url: "images/Walking.png",
         alt: "Park Stroll",
-        photographer: "Walking together",
+        photographer: "Walking together/Caminando juntos",
         category: "couple",
         size: "small"
     },
@@ -179,95 +179,79 @@ const galleryPhotos = [
         id: 24,
         url: "images/Suki uwu.png",
         alt: "Coffee Date",
-        photographer: "Morning love",
+        photographer: "Morning love/Amor del amanecer",
         category: "romantic",
         size: "small"
     },
     {
         id: 25,
-        url: "images/10 dic.png",
+        url: "images/Picnic.png",
         alt: "Picnic Love",
-        photographer: "Outdoor romance",
+        photographer: "Picnic Love/Picnic de amor",
         category: "love",
         size: "small"
     },
     {
         id: 26,
-        url: "images/Suki uwu.png",
+        url: "images/Peak of love.png",
         alt: "Mountain Romance",
-        photographer: "Peak of love",
+        photographer: "Peak of love/Pico de amor",
         category: "romantic",
         size: "small"
     },
     {
         id: 27,
-        url: "images/10 dic.png",
+        url: "images/Autumn.png",
         alt: "Autumn Love",
-        photographer: "Fall in love",
+        photographer: "Fall in love/Caer en el amor",
         category: "couple",
         size: "small"
     },
     {
         id: 28,
-        url: "images/Suki uwu.png",
+        url: "images/City.png",
         alt: "City Lights",
-        photographer: "Urban romance",
+        photographer: "Urban romance/Romance urbano",
         category: "romantic",
         size: "small"
     },
     {
         id: 29,
-        url: "images/10 dic.png",
+        url: "images/Spring.png",
         alt: "Spring Love",
-        photographer: "Blossoming hearts",
+        photographer: "Blossoming hearts/Corazones florecientes",
         category: "love",
         size: "small"
     },
     {
         id: 30,
-        url: "images/Suki uwu.png",
+        url: "images/Rainy.png",
         alt: "Rainy Day Love",
-        photographer: "Umbrella moments",
+        photographer: "Umbrella moments/Momentos con paraguas",
         category: "couple",
         size: "small"
     },
     {
         id: 31,
-        url: "images/10 dic.png",
+        url: "images/Night.png",
         alt: "Moonlight Dance",
-        photographer: "Night romance",
+        photographer: "Night romance/Romance nocturna",
         category: "romantic",
         size: "small"
     },
     {
         id: 32,
-        url: "images/Suki uwu.png",
+        url: "images/Library.png",
         alt: "Library Love",
-        photographer: "Quiet affection",
+        photographer: "Quiet affection/Afecto tranquilo",
         category: "love",
         size: "small"
     },
     {
         id: 33,
-        url: "images/10 dic.png",
+        url: "images/Cinema.png",
         alt: "Ice Cream Date",
-        photographer: "Sweet moments",
-        category: "couple",
-        size: "small"
-    },
-    {
-        id: 34,
-        url: "images/Suki uwu.png",
-        alt: "Ferris Wheel",
-        photographer: "Heights of love",
-        category: "romantic",
-        size: "small"
-    },
-    {
-        id: 35,
-        url: "images/10 dic.png",
-        alt: "Movie Night",
-        photographer: "Cinema romance",
+        photographer: "Cinema romance/Romance de cine",
         category: "couple",
         size: "small"
     }
