@@ -86,13 +86,19 @@ body {
 }
 
 .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-direction: column;
     gap: 15px;
     padding: 20px;
     max-width: 1600px;
     margin: 0 auto;
-    background-color: #fafafa;
+}
+
+.gallery-row {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    height: 350px; /* Fixed height for all rows */
 }
 
 .gallery-item {
@@ -104,25 +110,19 @@ body {
     margin: 0;
     padding: 0;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    height: 100%;  /* Fill the entire grid cell */
+    height: 100%; /* Fill entire row height */
 }
 
 /* Small items */
 .gallery-item-small {
-    grid-column: span 1;
-    height: 350px;  /* Fixed height instead of aspect-ratio */
-}
-
-/* Medium items */
-.gallery-item-medium {
-    grid-column: span 1;
-    height: 350px;  /* Same height as small for consistency */
+    flex: 1;
+    min-width: 0; /* Allows proper flex shrinking */
 }
 
 /* Large items */
 .gallery-item-large {
-    grid-column: span 2;
-    height: 350px;  /* Same height for consistency */
+    flex: 2;
+    min-width: 0; /* Allows proper flex shrinking */
 }
 
 .gallery-item img {
@@ -423,31 +423,19 @@ html {
 
 /* Responsive adjustments for animations */
 @media (max-width: 1024px) {
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-        padding: 15px;
-    }
-
-    .gallery-item-small,
-    .gallery-item-medium,
-    .gallery-item-large {
-        height: 300px;  /* Slightly smaller height for tablets */
+    .gallery-row {
+        height: 300px;
     }
 }
 
 @media (max-width: 768px) {
-    .gallery-grid {
-        grid-template-columns: 1fr;
-        gap: 10px;
-        padding: 10px;
+    .gallery-row {
+        height: 250px;
     }
     
     .gallery-item-small,
-    .gallery-item-medium,
     .gallery-item-large {
-        grid-column: span 1;
-        height: 250px;  /* Smaller height for mobile */
+        flex: 1; /* All items same size on mobile */
     }
 }
 
@@ -508,4 +496,73 @@ html {
 
 .nav-brand span:hover::after {
     opacity: 1;
+}
+
+/* Update navbar responsive styles */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .nav-brand span {
+        font-size: 1.8rem; /* Smaller font size for mobile */
+        letter-spacing: 2px;
+    }
+
+    .nav-search input {
+        width: 100%; /* Full width search bar */
+        max-width: 300px;
+    }
+}
+
+/* Update gallery responsive styles */
+@media (max-width: 768px) {
+    .gallery-container {
+        margin-top: 120px; /* Increased margin to account for taller navbar */
+        padding: 10px;
+    }
+
+    .gallery-grid {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .gallery-row {
+        flex-direction: column; /* Stack items vertically */
+        height: auto; /* Allow height to be determined by content */
+        gap: 10px;
+    }
+
+    .gallery-item {
+        height: 250px; /* Fixed height for mobile items */
+        width: 100%; /* Full width */
+    }
+
+    .gallery-item-small,
+    .gallery-item-large {
+        flex: none; /* Remove flex properties */
+        width: 100%; /* Full width */
+    }
+}
+
+/* Update modal responsive styles */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .modal-description {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+
+    .close-modal {
+        top: 10px;
+        right: 15px;
+        font-size: 30px;
+    }
 } 
