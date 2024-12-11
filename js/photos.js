@@ -1,7 +1,7 @@
 const galleryPhotos = [
     {
         id: 1,
-        url: "images/Suki uwu.png",
+        url: "images/10 dic.png",
         alt: "Love Photo",
         photographer: "A moment of pure love",
         category: "love",

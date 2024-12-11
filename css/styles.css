@@ -44,14 +44,15 @@ body {
     left: 0;
     right: 0;
     height: 60px;
-    background-color: white;
-    border-bottom: 1px solid #dbdbdb;
+    background-color: rgba(20, 20, 20, 0.95);  /* Slightly transparent */
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(45, 45, 45, 0.5);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .nav-brand {
@@ -439,63 +440,68 @@ html {
     }
 }
 
-/* Import elegant fonts */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Italiana&display=swap');
+/* Import new elegant fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Abril+Fatface&family=Libre+Bodoni:ital,wght@0,400;0,500;1,400&display=swap');
 
-/* Update the nav-brand span style */
+/* Title styles */
 .nav-brand span {
-    font-family: 'Italiana', serif;
+    font-family: 'Abril Fatface', serif;
     font-weight: 400;
     font-size: 2.6rem;
-    letter-spacing: 3px;
-    background: linear-gradient(45deg, 
-        #4FB5E6,  /* Brighter celestial blue */
-        #FF69B4  /* Hot pink */
+    letter-spacing: 1.5px;
+    background-image: linear-gradient(45deg, 
+        #00ffff,  /* Cyan */
+        #ff1493  /* Deep pink */
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-transform: none;
-    font-style: normal;
-    padding: 0 8px;
-    transition: all 0.4s ease;
-    text-shadow: 3px 3px 6px rgba(0,0,0,0.15);
+    padding: 0 12px;
+    transition: all 0.3s ease;
     position: relative;
+    display: inline-block;
 }
 
-/* Add hover effect */
+/* Hover effect */
 .nav-brand span:hover {
-    background: linear-gradient(45deg,
-        #FF69B4,  /* Hot pink */
-        #4FB5E6   /* Brighter celestial blue */
+    background-image: linear-gradient(45deg,
+        #ff1493,  /* Deep pink */
+        #00ffff  /* Cyan */
     );
     -webkit-background-clip: text;
-    background-clip: text;
     -webkit-text-fill-color: transparent;
-    transform: scale(1.05);
-    text-shadow: 4px 4px 8px rgba(0,0,0,0.2);
+    transform: scale(1.03);
 }
 
-/* Add a subtle glow effect */
+/* Remove conflicting dark theme styles */
+.nav-brand {
+    background: none;
+}
+
 .nav-brand span::after {
     content: '';
     position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
+    inset: -5px;
     background: linear-gradient(45deg, 
-        rgba(79, 181, 230, 0.2),  /* Celestial blue glow */
-        rgba(255, 105, 180, 0.2)  /* Pink glow */
+        rgba(0, 255, 255, 0.15),
+        rgba(255, 20, 147, 0.15)
     );
-    filter: blur(10px);
-    z-index: -1;
+    filter: blur(12px);
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.3s ease;
+    z-index: -1;
 }
 
 .nav-brand span:hover::after {
     opacity: 1;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .nav-brand span {
+        font-size: 2.2rem;
+        letter-spacing: 1px;
+        padding: 0 8px;
+    }
 }
 
 /* Update navbar responsive styles */
@@ -508,8 +514,8 @@ html {
     }
 
     .nav-brand span {
-        font-size: 1.8rem; /* Smaller font size for mobile */
-        letter-spacing: 2px;
+        font-size: 2rem;
+        letter-spacing: 1.5px;
     }
 
     .nav-search input {
@@ -565,4 +571,135 @@ html {
         right: 15px;
         font-size: 30px;
     }
+}
+
+/* Dark theme colors */
+:root {
+    --bg-dark: #0a0a0a;  /* Darker background */
+    --bg-dark-secondary: #141414;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --border-color: #2d2d2d;
+    --card-bg: #1a1a1a;
+    --hover-bg: #252525;
+}
+
+/* Update base styles for dark theme */
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+}
+
+/* Update navbar for dark theme */
+.navbar {
+    background-color: var(--bg-dark-secondary);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+
+.nav-search input {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.nav-search input:focus {
+    background-color: var(--hover-bg);
+    border-color: #00a8ff;
+    box-shadow: 0 0 0 3px rgba(0, 168, 255, 0.2);
+}
+
+/* Update gallery styles for dark theme */
+.gallery-container {
+    background-color: var(--bg-dark);
+}
+
+.gallery-grid {
+    background-color: var(--bg-dark);
+}
+
+.gallery-item {
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+.overlay {
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.3),
+        rgba(0,0,0,0.8)
+    );
+}
+
+/* Update scrollbar for dark theme */
+::-webkit-scrollbar {
+    background-color: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--bg-dark-secondary);
+}
+
+/* Update modal styles for dark theme */
+.modal {
+    background-color: rgba(0,0,0,0.95);
+}
+
+.modal-content {
+    background-color: var(--bg-dark-secondary);
+}
+
+.modal-description {
+    color: var(--text-primary);
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Hover effects for dark theme */
+
+.nav-brand span::after {
+    background: linear-gradient(45deg, 
+        rgba(0, 168, 255, 0.2),  /* Blue glow */
+        rgba(255, 105, 180, 0.2)  /* Pink glow */
+    );
+    filter: blur(15px);
+}
+
+/* Mobile adjustments for dark theme */
+@media (max-width: 768px) {
+    .navbar {
+        background-color: var(--bg-dark-secondary);
+    }
+
+    .gallery-container {
+        background-color: var(--bg-dark);
+    }
+
+    .gallery-item {
+        background-color: var(--card-bg);
+    }
+}
+
+/* Update background pattern */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 15% 50%, rgba(0, 255, 255, 0.03) 0%, transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(255, 20, 147, 0.03) 0%, transparent 25%);
+    pointer-events: none;
+    z-index: -1;
 } 
