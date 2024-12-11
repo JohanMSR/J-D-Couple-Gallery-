@@ -4,42 +4,48 @@ const galleryPhotos = [
         url: "images/Suki uwu.png",
         alt: "Love Photo",
         photographer: "A moment of pure love",
-        category: "love"
+        category: "love",
+        size: "large"
     },
     {
         id: 2,
         url: "images/Suki uwu.png",
         alt: "Couple Photo",
         photographer: "Together forever",
-        category: "couple"
+        category: "couple",
+        size: "small"
     },
     {
         id: 3,
         url: "images/Suki uwu.png",
         alt: "Romantic Moment",
         photographer: "Romance in the sunset",
-        category: "romantic"
+        category: "romantic",
+        size: "small"
     },
     {
         id: 4,
         url: "images/Suki uwu.png",
         alt: "Sunset Photo",
         photographer: "Golden hour beauty",
-        category: "nature"
+        category: "nature",
+        size: "large"
     },
     {
         id: 5,
         url: "images/Suki uwu.png",
         alt: "Beach Photo",
         photographer: "Waves of serenity",
-        category: "nature"
+        category: "nature",
+        size: "small"
     },
     {
         id: 6,
         url: "images/Suki uwu.png",
         alt: "Flowers Photo",
         photographer: "Blooming happiness",
-        category: "nature"
+        category: "nature",
+        size: "small"
     }
 ];
 
@@ -49,13 +55,12 @@ function renderGallery() {
     galleryGrid.innerHTML = ''; // Clear existing content
 
     galleryPhotos.forEach((photo, index) => {
-        // Calculate animation delay based on column position
-        const columnPosition = index % 3; // Assuming 3 columns
+        const columnPosition = index % 3;
         const rowPosition = Math.floor(index / 3);
         const delay = (columnPosition + rowPosition) * 100;
 
         const galleryItem = `
-            <div class="gallery-item" 
+            <div class="gallery-item gallery-item-${photo.size}" 
                 data-aos="fade-up" 
                 data-aos-delay="${50 * (index % 3)}"
                 data-aos-duration="600"
@@ -84,7 +89,9 @@ function filterPhotosByCategory(category) {
 
     filteredPhotos.forEach((photo, index) => {
         const galleryItem = `
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="${index * 100}">
+            <div class="gallery-item gallery-item-${photo.size}" 
+                data-aos="fade-up" 
+                data-aos-delay="${index * 100}">
                 <img src="${photo.url}" alt="${photo.alt}">
                 <div class="overlay">
                     <div class="photographer">
