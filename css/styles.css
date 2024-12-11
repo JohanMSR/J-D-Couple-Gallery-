@@ -10,6 +10,9 @@ html {
     scrollbar-width: thin;  /* For Firefox */
     scrollbar-color: #888 #f1f1f1;  /* For Firefox */
     overflow-x: hidden;  /* Prevent horizontal scroll */
+    scroll-behavior: auto;
+    /* Remove overflow anchor */
+    overflow-anchor: auto;
 }
 
 /* For Webkit browsers (Chrome, Safari) */
@@ -29,7 +32,8 @@ html {
 
 /* Prevent layout shift */
 body {
-    padding-right: calc(100vw - 100%);  /* Prevents layout shift */
+    position: relative;
+    padding-right: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     background-color: #fafafa;
     overflow-y: scroll;  /* Always show scrollbar */
@@ -37,6 +41,10 @@ body {
     width: 100%;
     scrollbar-width: none; /* For Firefox */
     -ms-overflow-style: none; /* For Internet Explorer and Edge */
+    /* Remove overscroll behavior */
+    overscroll-behavior: auto;
+    /* Remove webkit overflow scrolling */
+    -webkit-overflow-scrolling: auto;
 }
 
 /* For Webkit browsers (Chrome, Safari, etc.) */
@@ -100,6 +108,8 @@ body::-webkit-scrollbar {
     padding: 20px;
     max-width: 1600px;
     margin: 0 auto;
+    transform-style: flat;
+    perspective: none;
 }
 
 .gallery-row {
@@ -114,6 +124,7 @@ body::-webkit-scrollbar {
     overflow: hidden;
     border-radius: 8px;
     transition: transform 0.3s ease;
+    transform: none;
 }
 
 .gallery-item img {

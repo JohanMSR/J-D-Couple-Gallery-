@@ -2,26 +2,29 @@ document.addEventListener('DOMContentLoaded', function() {
     // Render initial gallery
     renderGallery();
     
-    // Initialize AOS with better responsive settings
+    // Initialize AOS with simpler settings
     AOS.init({
-        duration: 800,
-        offset: 100,
-        once: false,
-        easing: 'ease-out-cubic',
-        delay: 0,
-        mirror: true,
-        anchorPlacement: 'top-bottom',
-        disable: 'mobile', // Disable on mobile devices
-        startEvent: 'DOMContentLoaded',
-        throttleDelay: 50,
-        debounceDelay: 0,
-        useClassNames: true,
-        disableMutationObserver: false
+        // Disable on all mobile devices
+        disable: window.innerWidth < 768,
+        // Animation only happens once
+        once: true,
+        // Shorter duration
+        duration: 600,
+        // Remove mirror effect which can cause scroll issues
+        mirror: false,
+        // Use a simpler easing
+        easing: 'ease-out',
+        // Reduce the offset to trigger animations
+        offset: 50
     });
 
-    // Refresh AOS on window resize
+    // Refresh AOS only when needed
+    let resizeTimeout;
     window.addEventListener('resize', function() {
-        AOS.refresh();
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+            AOS.refresh();
+        }, 250);
     });
 
     // Add search functionality
