@@ -178,9 +178,6 @@ document.addEventListener('DOMContentLoaded', function() {
     modalImageContainer.addEventListener('touchend', handleTouchEnd, false);
 
     function handleTouchStart(event) {
-        // Don't start dragging if the image is zoomed
-        if (isZoomed) return;
-        
         touchStartX = event.touches[0].clientX;
         isDragging = true;
         currentTranslateX = 0;
@@ -189,9 +186,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function handleTouchMove(event) {
         if (!isDragging) return;
-        
-        // Prevent default scrolling
-        event.preventDefault();
         
         const currentX = event.touches[0].clientX;
         currentTranslateX = currentX - touchStartX;
@@ -252,12 +246,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add these functions to your existing modal code
     function showPreviousImage() {
-        navigatePhoto(-1);
+        // Your existing previous image logic
         modalImage.style.transform = 'translateX(0)';
     }
 
     function showNextImage() {
-        navigatePhoto(1);
+        // Your existing next image logic
         modalImage.style.transform = 'translateX(0)';
     }
 });
