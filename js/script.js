@@ -161,6 +161,105 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
         }
     }, { passive: false });
+
+    // Touch interaction handling
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let currentTranslateX = 0;
+    let isDragging = false;
+    const SWIPE_THRESHOLD = 100; // minimum distance for a swipe
+
+    const modalImageContainer = document.getElementById('modalImageContainer');
+    const modalImage = document.getElementById('modalImage');
+
+    // Add touch event listeners
+    modalImageContainer.addEventListener('touchstart', handleTouchStart, false);
+    modalImageContainer.addEventListener('touchmove', handleTouchMove, false);
+    modalImageContainer.addEventListener('touchend', handleTouchEnd, false);
+
+    function handleTouchStart(event) {
+        // Don't start dragging if the image is zoomed
+        if (isZoomed) return;
+        
+        touchStartX = event.touches[0].clientX;
+        isDragging = true;
+        currentTranslateX = 0;
+        modalImage.style.transition = 'none';
+    }
+
+    function handleTouchMove(event) {
+        if (!isDragging) return;
+        
+        // Prevent default scrolling
+        event.preventDefault();
+        
+        const currentX = event.touches[0].clientX;
+        currentTranslateX = currentX - touchStartX;
+        
+        // Limit the drag distance
+        if (Math.abs(currentTranslateX) > window.innerWidth / 3) {
+            currentTranslateX = (currentTranslateX > 0 ? 1 : -1) * window.innerWidth / 3;
+        }
+        
+        modalImage.style.transform = `translateX(${currentTranslateX}px)`;
+        
+        // Show swipe indicator
+        updateSwipeIndicator(currentTranslateX);
+    }
+
+    function handleTouchEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        
+        modalImage.style.transition = 'transform 0.3s ease-out';
+        
+        if (Math.abs(currentTranslateX) > SWIPE_THRESHOLD) {
+            // Swipe was long enough - change image
+            if (currentTranslateX > 0) {
+                showPreviousImage();
+            } else {
+                showNextImage();
+            }
+        } else {
+            // Reset image position
+            modalImage.style.transform = 'translateX(0)';
+        }
+        
+        // Hide swipe indicator
+        hideSwipeIndicators();
+    }
+
+    function updateSwipeIndicator(translateX) {
+        const leftIndicator = document.querySelector('.swipe-indicator.left');
+        const rightIndicator = document.querySelector('.swipe-indicator.right');
+        
+        if (translateX > 50) {
+            leftIndicator.classList.add('visible');
+            rightIndicator.classList.remove('visible');
+        } else if (translateX < -50) {
+            rightIndicator.classList.add('visible');
+            leftIndicator.classList.remove('visible');
+        } else {
+            hideSwipeIndicators();
+        }
+    }
+
+    function hideSwipeIndicators() {
+        document.querySelectorAll('.swipe-indicator').forEach(indicator => {
+            indicator.classList.remove('visible');
+        });
+    }
+
+    // Add these functions to your existing modal code
+    function showPreviousImage() {
+        navigatePhoto(-1);
+        modalImage.style.transform = 'translateX(0)';
+    }
+
+    function showNextImage() {
+        navigatePhoto(1);
+        modalImage.style.transform = 'translateX(0)';
+    }
 });
 
 // Function to render filtered gallery

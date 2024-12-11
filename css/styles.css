@@ -754,3 +754,52 @@ body::before {
         backdrop-filter: blur(4px);
     }
 } 
+
+/* Update swipe indicator styles */
+.swipe-indicator {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    color: white;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.swipe-indicator.left {
+    left: 20px;
+}
+
+.swipe-indicator.right {
+    right: 20px;
+}
+
+.swipe-indicator.visible {
+    opacity: 1;
+}
+
+.modal-image-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: none; /* Prevent all default touch actions */
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-image-container img {
+    user-select: none;
+    -webkit-user-drag: none;
+    transition: transform 0.3s ease-out;
+} 
