@@ -1,7 +1,7 @@
 const galleryPhotos = [
     {
         id: 1,
-        url: "../images/love/love1.jpg",
+        url: "images/Suki uwu.png",
         alt: "Love Photo",
         photographer: "A moment of pure love",
         category: "love"
@@ -15,28 +15,28 @@ const galleryPhotos = [
     },
     {
         id: 3,
-        url: "images/romantic/romantic1.jpg",
+        url: "images/Suki uwu.png",
         alt: "Romantic Moment",
         photographer: "Romance in the sunset",
         category: "romantic"
     },
     {
         id: 4,
-        url: "images/nature/nature1.jpg",
+        url: "images/Suki uwu.png",
         alt: "Sunset Photo",
         photographer: "Golden hour beauty",
         category: "nature"
     },
     {
         id: 5,
-        url: "images/nature/nature2.jpg",
+        url: "images/Suki uwu.png",
         alt: "Beach Photo",
         photographer: "Waves of serenity",
         category: "nature"
     },
     {
         id: 6,
-        url: "images/nature/nature3.jpg",
+        url: "images/Suki uwu.png",
         alt: "Flowers Photo",
         photographer: "Blooming happiness",
         category: "nature"
