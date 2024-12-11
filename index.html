@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Gallery</title>
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span>ElegantGallery</span>
+        </div>
+        <div class="nav-search">
+            <input type="text" placeholder="Search...">
+        </div>
+    </nav>
+
+    <main class="gallery-container">
+        <div class="gallery-grid">
+            <!-- Gallery Items -->
+            <div class="gallery-item" data-aos="fade-up">
+                <img src="https://source.unsplash.com/random/800x800?nature" alt="Gallery Image">
+                <div class="overlay">
+                    <div class="stats">
+                        <span><i class="fas fa-heart"></i> 1.2k</span>
+                        <span><i class="fas fa-comment"></i> 234</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Repeat gallery items with different images -->
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://source.unsplash.com/random/800x800?urban" alt="Gallery Image">
+                <div class="overlay">
+                    <div class="stats">
+                        <span><i class="fas fa-heart"></i> 856</span>
+                        <span><i class="fas fa-comment"></i> 156</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more gallery items as needed -->
+        </div>
+    </main>
+
+    <!-- Modal for image preview -->
+    <div class="modal" id="imageModal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="modal-caption">
+            <div class="user-info">
+                <img src="https://source.unsplash.com/random/50x50?portrait" alt="User Profile" class="profile-pic">
+                <span class="username">@photographer</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="photos.js"></script>
+    <script src="script.js"></script>
+
+    <footer class="footer">
+        <p>Made by Johan Salazar For Diana Alvarez</p>
+        <div class="footer-heart">
+            <i class="fas fa-heart"></i>
+        </div>
+    </footer>
+</body>
+</html> 
