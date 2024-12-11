@@ -190,6 +190,86 @@ const galleryPhotos = [
         photographer: "Outdoor romance",
         category: "love",
         size: "small"
+    },
+    {
+        id: 26,
+        url: "images/Suki uwu.png",
+        alt: "Mountain Romance",
+        photographer: "Peak of love",
+        category: "romantic",
+        size: "small"
+    },
+    {
+        id: 27,
+        url: "images/10 dic.png",
+        alt: "Autumn Love",
+        photographer: "Fall in love",
+        category: "couple",
+        size: "small"
+    },
+    {
+        id: 28,
+        url: "images/Suki uwu.png",
+        alt: "City Lights",
+        photographer: "Urban romance",
+        category: "romantic",
+        size: "small"
+    },
+    {
+        id: 29,
+        url: "images/10 dic.png",
+        alt: "Spring Love",
+        photographer: "Blossoming hearts",
+        category: "love",
+        size: "small"
+    },
+    {
+        id: 30,
+        url: "images/Suki uwu.png",
+        alt: "Rainy Day Love",
+        photographer: "Umbrella moments",
+        category: "couple",
+        size: "small"
+    },
+    {
+        id: 31,
+        url: "images/10 dic.png",
+        alt: "Moonlight Dance",
+        photographer: "Night romance",
+        category: "romantic",
+        size: "small"
+    },
+    {
+        id: 32,
+        url: "images/Suki uwu.png",
+        alt: "Library Love",
+        photographer: "Quiet affection",
+        category: "love",
+        size: "small"
+    },
+    {
+        id: 33,
+        url: "images/10 dic.png",
+        alt: "Ice Cream Date",
+        photographer: "Sweet moments",
+        category: "couple",
+        size: "small"
+    },
+    {
+        id: 34,
+        url: "images/Suki uwu.png",
+        alt: "Ferris Wheel",
+        photographer: "Heights of love",
+        category: "romantic",
+        size: "small"
+    },
+    {
+        id: 35,
+        url: "images/10 dic.png",
+        alt: "Movie Night",
+        photographer: "Cinema romance",
+        category: "couple",
+        size: "small"
     }
 ];
 
