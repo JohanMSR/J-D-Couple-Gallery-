@@ -5,7 +5,7 @@ const galleryPhotos = [
         alt: "Love Photo",
         photographer: "A moment of pure love",
         category: "love",
-        size: "large"
+        size: "small"
     },
     {
         id: 2,
@@ -37,7 +37,7 @@ const galleryPhotos = [
         alt: "Beach Photo",
         photographer: "Waves of serenity",
         category: "nature",
-        size: "large"
+        size: "small"
     },
     {
         id: 6,
@@ -61,7 +61,7 @@ const galleryPhotos = [
         alt: "Sunset Dreams",
         photographer: "Evening magic",
         category: "nature",
-        size: "large"
+        size: "small"
     },
     {
         id: 10,
@@ -85,7 +85,7 @@ const galleryPhotos = [
         alt: "Forest Path",
         photographer: "Woodland journey",
         category: "nature",
-        size: "large"
+        size: "small"
     },
     {
         id: 13,
@@ -109,37 +109,87 @@ const galleryPhotos = [
         alt: "Morning Mist",
         photographer: "Dawn's embrace",
         category: "nature",
-        size: "large"
+        size: "small"
     }
 ];
 
+// Function to randomize sizes while maintaining grid layout
+function randomizeGallerySizes() {
+    let currentRowWidth = 0;
+    let currentRow = [];
+    const rows = [];
+    
+    // First pass: group photos into potential rows
+    galleryPhotos.forEach((photo, index) => {
+        if (currentRowWidth + 1 <= 3) {
+            currentRow.push(photo);
+            currentRowWidth += 1;
+        }
+        
+        // When row is full or it's the last photo
+        if (currentRowWidth === 3 || index === galleryPhotos.length - 1) {
+            rows.push([...currentRow]);
+            currentRow = [];
+            currentRowWidth = 0;
+        }
+    });
+
+    // Second pass: randomize sizes within each row
+    rows.forEach(row => {
+        if (row.length === 3) {
+            // Randomly choose between patterns: [L,S,S] or [S,L,S] or [S,S,L]
+            const pattern = Math.floor(Math.random() * 3);
+            switch (pattern) {
+                case 0:
+                    row[0].size = "large";
+                    row[1].size = "small";
+                    row[2].size = "small";
+                    break;
+                case 1:
+                    row[0].size = "small";
+                    row[1].size = "large";
+                    row[2].size = "small";
+                    break;
+                case 2:
+                    row[0].size = "small";
+                    row[1].size = "small";
+                    row[2].size = "large";
+                    break;
+            }
+        } else if (row.length === 2) {
+            // For incomplete rows, randomly choose [L,S] or [S,L]
+            const pattern = Math.random() < 0.5;
+            row[0].size = pattern ? "large" : "small";
+            row[1].size = pattern ? "small" : "large";
+        }
+    });
+}
+
 // Function to render gallery items
 function renderGallery() {
+    // Randomize sizes before rendering
+    randomizeGallerySizes();
+    
     const galleryGrid = document.querySelector('.gallery-grid');
-    galleryGrid.innerHTML = ''; // Clear existing content
+    galleryGrid.innerHTML = '';
 
-    // Calculate total columns needed (3 columns per row)
     const totalColumns = 3;
     let currentRow = [];
     let allRows = [];
 
-    // Group photos into rows
     galleryPhotos.forEach((photo, index) => {
         currentRow.push(photo);
         
-        // When row is complete or it's the last item
         if (currentRow.length === totalColumns || index === galleryPhotos.length - 1) {
             allRows.push([...currentRow]);
             currentRow = [];
         }
     });
 
-    // Render each row
     allRows.forEach((row, rowIndex) => {
         const rowDiv = document.createElement('div');
         rowDiv.className = 'gallery-row';
         
-        // Render items in the row
         row.forEach((photo, colIndex) => {
             const delay = (rowIndex * totalColumns + colIndex) * 50;
             
@@ -171,10 +221,12 @@ function filterPhotosByCategory(category) {
         ? galleryPhotos 
         : galleryPhotos.filter(photo => photo.category === category);
     
+    // Randomize sizes for filtered photos
+    randomizeGallerySizes();
+    
     const galleryGrid = document.querySelector('.gallery-grid');
     galleryGrid.innerHTML = '';
 
-    // Group filtered photos into rows
     const totalColumns = 3;
     let currentRow = [];
     let allRows = [];
@@ -188,7 +240,6 @@ function filterPhotosByCategory(category) {
         }
     });
 
-    // Render filtered rows
     allRows.forEach((row, rowIndex) => {
         const rowDiv = document.createElement('div');
         rowDiv.className = 'gallery-row';
