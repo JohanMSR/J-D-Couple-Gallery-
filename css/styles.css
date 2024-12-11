@@ -112,13 +112,14 @@ body::-webkit-scrollbar {
 .gallery-item {
     position: relative;
     overflow: hidden;
-    border-radius: 16px;
-    transition: all 0.3s ease;
-    background: #f0f0f0;
-    margin: 0;
-    padding: 0;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    height: 100%; /* Fill entire row height */
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* Small items */
@@ -133,13 +134,13 @@ body::-webkit-scrollbar {
     min-width: 0; /* Allows proper flex shrinking */
 }
 
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    margin: 0;
-    transition: transform 0.3s ease;
+.gallery-item-wide {
+    grid-column: span 2;
+    aspect-ratio: 2/1;
+}
+
+.gallery-item-hidden {
+    display: none;
 }
 
 /* Hover effect */

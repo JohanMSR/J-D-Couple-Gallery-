@@ -126,7 +126,6 @@ function randomizeGallerySizes() {
             currentRowWidth += 1;
         }
         
-        // When row is full or it's the last photo
         if (currentRowWidth === 3 || index === galleryPhotos.length - 1) {
             rows.push([...currentRow]);
             currentRow = [];
@@ -137,30 +136,45 @@ function randomizeGallerySizes() {
     // Second pass: randomize sizes within each row
     rows.forEach(row => {
         if (row.length === 3) {
-            // Randomly choose between patterns: [L,S,S] or [S,L,S] or [S,S,L]
-            const pattern = Math.floor(Math.random() * 3);
+            // Add new pattern options including wide: [W,S] or [S,W] or [L,S,S] or [S,L,S] or [S,S,L]
+            const pattern = Math.floor(Math.random() * 5);
             switch (pattern) {
                 case 0:
+                    row[0].size = "wide";
+                    row[1].size = "small";
+                    row[2] && (row[2].size = "hidden"); // Hide third item if wide is used
+                    break;
+                case 1:
+                    row[0].size = "small";
+                    row[1].size = "wide";
+                    row[2] && (row[2].size = "hidden"); // Hide third item if wide is used
+                    break;
+                case 2:
                     row[0].size = "large";
                     row[1].size = "small";
                     row[2].size = "small";
                     break;
-                case 1:
+                case 3:
                     row[0].size = "small";
                     row[1].size = "large";
                     row[2].size = "small";
                     break;
-                case 2:
+                case 4:
                     row[0].size = "small";
                     row[1].size = "small";
                     row[2].size = "large";
                     break;
             }
         } else if (row.length === 2) {
-            // For incomplete rows, randomly choose [L,S] or [S,L]
-            const pattern = Math.random() < 0.5;
-            row[0].size = pattern ? "large" : "small";
-            row[1].size = pattern ? "small" : "large";
+            // For incomplete rows, randomly choose between [L,S], [S,L], or [W]
+            const pattern = Math.floor(Math.random() * 3);
+            if (pattern === 2) {
+                row[0].size = "wide";
+                row[1].size = "hidden";
+            } else {
+                row[0].size = pattern === 0 ? "large" : "small";
+                row[1].size = pattern === 0 ? "small" : "large";
+            }
         }
     });
 }
