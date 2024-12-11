@@ -91,7 +91,7 @@ const galleryPhotos = [
         id: 13,
         url: "images/Lost.png",
         alt: "Desert Sands",
-        photographer: "Navegation/Navegación",
+        photographer: "Navegation/Navegacion",
         category: "nature",
         size: "small"
     },
@@ -353,11 +353,11 @@ function renderGallery() {
             
             const galleryItem = `
                 <div class="gallery-item gallery-item-${photo.size}" 
-                    data-aos="fade-up" 
-                    data-aos-delay="${delay}"
-                    data-aos-duration="600"
-                    data-aos-anchor-placement="top-bottom"
-                    data-aos-easing="ease-out-cubic">
+                    data-aos="zoom-in-up"
+                    data-aos-duration="400"
+                    data-aos-offset="100"
+                    data-aos-once="true"
+                    data-aos-easing="ease-out-back">
                     <img src="${photo.url}" alt="${photo.alt}">
                     <div class="overlay">
                         <div class="photographer">
@@ -432,3 +432,14 @@ if (typeof module !== 'undefined' && module.exports) {
         filterPhotosByCategory
     };
 } 
+
+// Find the gallery initialization code and add/modify these settings
+AOS.init({
+    duration: 400,
+    delay: 50,
+    once: true,
+    offset: 100,
+    disable: false,
+    easing: 'ease-out-back',
+    mirror: false
+}); 
