@@ -137,9 +137,9 @@ const galleryPhotos = [
     },
     {
         id: 19,
-        url: "images/My love.png",
+        url: "images/My Love.png",
         alt: "Beach Sunset",
-        photographer: "My love/Mi amor",
+        photographer: "My Love/Mi amor",
         category: "romantic",
         size: "small"
     },
