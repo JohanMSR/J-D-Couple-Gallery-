@@ -297,9 +297,9 @@ const galleryPhotos = [
     },
     {
         id: 39,
-        url: "images/Dangerous.png",
-        alt: "Dangerous",
-        photographer: "Dangerous/Peligroso",
+        url: "images/Danger.png",
+        alt: "Danger",
+        photographer: "Danger/Peligroso",
         category: "couple",
         size: "small"
     }
