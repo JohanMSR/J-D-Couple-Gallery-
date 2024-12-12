@@ -43,21 +43,36 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Function to open modal
     function openModal(photoIndex) {
-        console.log('Opening modal with photo index:', photoIndex);
         currentPhotoIndex = photoIndex;
         const photo = galleryPhotos[photoIndex];
+        
+        // Get the clicked image's position and dimensions
+        const clickedImg = document.querySelector(`img[src="${photo.url}"]`);
+        const rect = clickedImg.getBoundingClientRect();
+        
+        // Set initial modal image position to match clicked image
         modal.style.display = 'flex';
+        modalImg.style.transform = `
+            translate(${rect.left}px, ${rect.top}px) 
+            scale(${rect.width / window.innerWidth})
+        `;
+        modalImg.style.transformOrigin = 'top left';
         modalImg.src = photo.url;
         modalDescription.textContent = photo.photographer;
         
-        // Save the current scroll position
+        // Save scroll position and prevent scrolling
         savedScrollPosition = window.scrollY;
-        // Prevent scrolling on body
         document.body.style.overflow = 'hidden';
+        
+        // Trigger animation
+        requestAnimationFrame(() => {
+            modal.classList.add('active');
+            modalImg.style.transform = 'translate(0, 0) scale(1)';
+            modalImg.style.transformOrigin = 'center center';
+        });
         
         isZoomed = false;
         modalImg.classList.remove('zoomed');
-        setTimeout(() => modal.classList.add('active'), 10);
     }
     
     // Function to handle image zoom
