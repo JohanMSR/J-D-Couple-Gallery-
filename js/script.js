@@ -39,19 +39,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const nextButton = document.querySelector('.modal-next');
     let currentPhotoIndex = 0;
     let isZoomed = false;
+    let savedScrollPosition = 0;
     
     // Function to open modal
     function openModal(photoIndex) {
+        console.log('Opening modal with photo index:', photoIndex);
         currentPhotoIndex = photoIndex;
         const photo = galleryPhotos[photoIndex];
         modal.style.display = 'flex';
         modalImg.src = photo.url;
         modalDescription.textContent = photo.photographer;
+        
+        // Save the current scroll position
+        savedScrollPosition = window.scrollY;
         // Prevent scrolling on body
         document.body.style.overflow = 'hidden';
-        document.body.style.position = 'fixed';
-        document.body.style.width = '100%';
-        document.body.style.top = `-${window.scrollY}px`;
+        
         isZoomed = false;
         modalImg.classList.remove('zoomed');
         setTimeout(() => modal.classList.add('active'), 10);
@@ -89,13 +92,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function closeModalFunction() {
         modal.classList.remove('active');
         setTimeout(() => {
-            // Restore scrolling
-            const scrollY = document.body.style.top;
-            document.body.style.position = '';
-            document.body.style.width = '';
-            document.body.style.top = '';
+            // Reset body scroll
             document.body.style.overflow = '';
-            window.scrollTo(0, parseInt(scrollY || '0') * -1);
+            // Restore scroll position
+            window.scrollTo(0, savedScrollPosition);
             modal.style.display = 'none';
         }, 300);
     }
@@ -118,8 +118,28 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('click', function(e) {
         const galleryItem = e.target.closest('.gallery-item');
         if (galleryItem) {
-            const index = Array.from(galleryItem.parentNode.children).indexOf(galleryItem);
-            openModal(index);
+            // Get the clicked image URL
+            const clickedImageUrl = galleryItem.querySelector('img').src;
+            
+            // Extract just the image filename from the full URL
+            const clickedImageName = decodeURIComponent(clickedImageUrl.split('/').pop());
+            
+            // Find the matching photo in galleryPhotos using just the filename
+            const index = galleryPhotos.findIndex(photo => {
+                const photoFileName = photo.url.split('/').pop();
+                return photoFileName === clickedImageName;
+            });
+
+            console.log('Clicked image:', clickedImageName);
+            console.log('Found index:', index);
+            
+            if (index !== -1) {
+                openModal(index);
+            } else {
+                console.error('Image not found in gallery:', clickedImageName);
+                // Log all filenames in galleryPhotos for debugging
+                console.log('Available images:', galleryPhotos.map(p => p.url.split('/').pop()));
+            }
         }
     });
     
