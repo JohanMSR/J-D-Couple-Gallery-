@@ -250,12 +250,60 @@ const galleryPhotos = [
     {
         id: 33,
         url: "images/Cinema.png",
-        alt: "Ice Cream Date",
+        alt: "Cinema",
         photographer: "Cinema romance/Romance de cine",
         category: "couple",
         size: "small"
+    },
+    {
+        id: 34,
+        url: "images/Happy christmas.png",
+        alt: "Happy christmas",
+        photographer: "Happy christmas/Feliz Navidad",
+        category: "couple",
+        size: "small"
+    },
+    {
+        id: 35,
+        url: "images/Suki and Vaca.png",
+        alt: "Suki and Vaca",
+        photographer: "Suki and Vaca/Suki y Vaca",
+        category: "couple",
+        size: "small"
+    },
+    {
+        id: 36,
+        url: "images/Suki, Vaca and Johan.png",
+        alt: "Suki, Vaca and Johan",
+        photographer: "Suki, Vaca and Johan/Suki, Vaca y Johan",
+        category: "couple",
+        size: "small"
+    },
+    {
+        id: 37,
+        url: "images/Beautiful girl.png",
+        alt: "Beautiful girl",
+        photographer: "Beautiful girl/Chica hermosa",
+        category: "couple",
+        size: "small"
+    },
+    {
+        id: 38,
+        url: "images/Are you okay.png",
+        alt: "Are you okay",
+        photographer: "Are you okay?/¿Estás bien?",
+        category: "couple",
+        size: "small"
+    },
+    {
+        id: 39,
+        url: "images/Dangerous.png",
+        alt: "Dangerous",
+        photographer: "Dangerous/Peligroso",
+        category: "couple",
+        size: "small"
     }
-];
+].reverse();
 
 // Function to randomize sizes while maintaining grid layout
 function randomizeGallerySizes() {
@@ -377,7 +425,7 @@ function renderGallery() {
 function filterPhotosByCategory(category) {
     const filteredPhotos = category === 'all' 
         ? galleryPhotos 
-        : galleryPhotos.filter(photo => photo.category === category);
+        : galleryPhotos.filter(photo => photo.category === category).reverse();
     
     // Randomize sizes for filtered photos
     randomizeGallerySizes();
