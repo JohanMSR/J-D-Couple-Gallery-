@@ -337,12 +337,7 @@ body::-webkit-scrollbar {
     border-radius: 50%;
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
-    padding-bottom: 4px; /* Adjust the vertical alignment of × */
-}
-
-.close-modal::after {
-    content: '×';
-    line-height: 1;
+    padding-bottom: 6px;
 }
 
 .modal.active .close-modal {
@@ -363,7 +358,7 @@ body::-webkit-scrollbar {
         width: 40px;
         height: 40px;
         background: rgba(0, 0, 0, 0.6);
-        padding-bottom: 3px; /* Slightly adjust padding for mobile */
+        padding-bottom: 2px;
     }
 }
 
