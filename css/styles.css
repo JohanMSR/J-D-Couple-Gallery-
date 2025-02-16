@@ -463,7 +463,7 @@ body::-webkit-scrollbar {
     border-right: 3px solid #ff1493;
     border-radius: 50%;
     animation: spin 1s linear infinite;
-    opacity: 0;  /* Added opacity 0 */
+    opacity: 1;  /* Added opacity 0 */
 }
 
 @keyframes spin {
