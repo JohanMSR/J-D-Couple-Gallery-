@@ -78,30 +78,38 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to handle image zoom
     function toggleZoom(e) {
         if (e.target === modalImg) {
-            // Check if device is mobile
             const isMobile = window.innerWidth <= 768;
-            if (isMobile && isZoomed) {
-                // On mobile, reset transform origin when zooming out
-                modalImg.style.transformOrigin = 'center';
-            }
             isZoomed = !isZoomed;
+            
+            if (isZoomed) {
+                // When zooming in
+                const rect = modalImg.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width * 100;
+                const y = (e.clientY - rect.top) / rect.height * 100;
+                modalImg.style.transformOrigin = `${x}% ${y}%`;
+                modalImg.style.transform = 'scale(2.5)';
+            } else {
+                // When zooming out
+                modalImg.style.transformOrigin = 'center';
+                modalImg.style.transform = 'scale(1)';
+            }
+            
             modalImg.classList.toggle('zoomed');
         }
     }
     
-    // Add zoom click handler
-    modalImg.addEventListener('click', toggleZoom);
-    
     // Handle mouse move for panning when zoomed
     modalImg.addEventListener('mousemove', function(e) {
-        const isMobile = window.innerWidth <= 768;
-        if (isZoomed && !isMobile) {
+        if (isZoomed && window.innerWidth > 768) {
             const rect = modalImg.getBoundingClientRect();
             const x = (e.clientX - rect.left) / rect.width * 100;
             const y = (e.clientY - rect.top) / rect.height * 100;
             modalImg.style.transformOrigin = `${x}% ${y}%`;
         }
     });
+    
+    // Add zoom click handler
+    modalImg.addEventListener('click', toggleZoom);
     
     // Function to close modal
     function closeModalFunction() {
