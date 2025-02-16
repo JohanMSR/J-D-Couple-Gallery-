@@ -447,7 +447,7 @@ body::-webkit-scrollbar {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(20, 20, 20, 0);  /* Changed from 0.9 to 0 */
+    background: rgb(0, 0, 0);  /* Changed from 0.9 to rgb(0, 0, 0) */
     display: flex;
     justify-content: center;
     align-items: center;
