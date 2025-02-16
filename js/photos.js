@@ -406,7 +406,10 @@ function renderGallery() {
                     data-aos-offset="100"
                     data-aos-once="true"
                     data-aos-easing="ease-out-back">
-                    <img src="${photo.url}" alt="${photo.alt}">
+                    <div class="loading-overlay">
+                        <div class="loading-spinner"></div>
+                    </div>
+                    <img src="${photo.url}" alt="${photo.alt}" onload="this.parentElement.querySelector('.loading-overlay').style.display='none'">
                     <div class="overlay">
                         <div class="photographer">
                             <span>${photo.photographer}</span>
